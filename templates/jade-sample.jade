@@ -1,0 +1,37 @@
+//- Template to render pages from content created in Node CMS.
+//- Each page had n sections of content. The sidebar linked
+//- to related pages + section links for the current page.
+//- [link to image to illustrate structure]
+
+extends ../layouts/content
+
+mixin renderSection(section)
+  section(class='page-section', id=section.slug)
+    h2.section-title: = section.title
+    div.content-section: != section.content.description.html
+
+mixin renderLink(link)
+  if link.key === activePage
+    li
+      a(href=link.href, class='top link active'): != link.text
+      if sectionLinks
+        ul.sidebar-child-links
+          each l in sectionLinks
+            li.mid-li: a(href=l.href, class='mid link' data-scroll): != l.text
+  else
+    li: a(href=link.href, class='link top'): != link.text
+
+
+block sidebar
+  aside(class='sidebar' id='sidebar')
+    ul.sidebar-links
+      each link in pageLinks
+        +renderLink(link)
+
+block content
+  if sections
+    section.cms-created
+      if linkTop
+        h1(class='main-title'): = linkTop.text
+        each s in sections
+          +renderSection(s)
