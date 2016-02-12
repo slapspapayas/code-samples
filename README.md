@@ -1,20 +1,7 @@
 ## Code Samples
 
-* DOM Manipulation
+Samples have been modified to exclude code (functions, properties, etc) to ensure brevity and focus.
 
-* Templates
- * Jade sample
- * Handlebars..?
+#### [DOM Manipulation](dom-manipulation/links.js)
 
-* CSS/Preprocessors??
- * Stylus
- * Less
- * Sass
-
-* JavaScript
- * couple things from fw
- * ummmmmmmmm
- * Node scripts?? errrr
-
-* React/ES6
- * file tree
+#### [Data Structures in React Application](react-data)
